@@ -1,0 +1,21 @@
+   <table class="table table-hover">
+        <tr>
+            <td width="70px">
+                <a href="{{ url_for('user', username=message.author.username) }}">
+                    <img src="{{ message.author.avatar(70) }}" />
+                </a>
+            </td>
+            <td>
+                {% set user_link %}
+                    <span class="user_popup">
+                        <a href="{{ url_for('user', username=message.author.username) }}">
+                            {{ message.author.username }}
+                        </a>
+                    </span>
+                {% endset %}
+                {{ user_link }} said {{ moment(message.timestamp).fromNow() }}
+                <br>
+                {{ message.body }}
+            </td>
+        </tr>
+    </table>
